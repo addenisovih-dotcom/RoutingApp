@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Тестування маршрутів";
+}
+
+<h1>Тестування маршрутів</h1>
+
+<h3>1. Shop.Buy через /newOrder</h3>
+<ul>
+    <li><a href="/newOrder">/newOrder</a> — має відкрити Shop/Buy</li>
+</ul>
+
+<h3>2. Home — дії з довжиною ≤ 6 символів</h3>
+<ul>
+    <li><a href="/Home/About">/Home/About</a> — 5 символів, дозволено</li>
+    <li><a href="/Home/Contact">/Home/Contact</a> — 7 символів, має бути заблоковано (404)</li>
+    <li><a href="/Home/Feedback">/Home/Feedback</a> — 8 символів, має бути заблоковано (404)</li>
+</ul>
+
+<h3>3. Стара / нова адреса User.Settings</h3>
+<ul>
+    <li><a href="/usersettings/5">/usersettings/5</a> — стара адреса, має редіректнути на /user/settings/5</li>
+    <li><a href="/user/settings/5">/user/settings/5</a> — нова адреса напряму</li>
+    <li><a href="/user/settings/1000">/user/settings/1000</a> — поза діапазоном 1-999, має бути заблоковано (404)</li>
+</ul>
+
+<h3>4. Admin — дії, що закінчуються на "setup"</h3>
+<ul>
+    <li><a href="/Admin/InitSetup">/Admin/InitSetup</a> — дозволено</li>
+    <li><a href="/Admin/UserSetup">/Admin/UserSetup</a> — дозволено</li>
+    <li><a href="/Admin/Dashboard">/Admin/Dashboard</a> — має бути заблоковано (404)</li>
+</ul>
